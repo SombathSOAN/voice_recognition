@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtualenv
+.venv/
+
+# dotenv
+.env
+
+# VSCode / PyCharm
+.vscode/
+.idea/
