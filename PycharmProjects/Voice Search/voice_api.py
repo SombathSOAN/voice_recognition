@@ -7,16 +7,16 @@ import os
 # Load environment
 load_dotenv()
 
-class Settings(BaseSettings):
-    google_project: str = os.getenv("GOOGLE_CLOUD_PROJECT")
-    cors_origins: list[str] = os.getenv("CORS_ALLOW_ORIGINS", "").split(",")
-    host: str = os.getenv("HOST", "0.0.0.0")
-    # port: int = int(os.getenv("PORT", 8000))
-    port: int = int(os.getenv("PORT", os.getenv("PORT", 8000)))
-    log_level: str = os.getenv("LOG_LEVEL", "info")
-    base_search_url: str = os.getenv("BASE_SEARCH_URL", "https://e-catalog.dahoughengenterprise.com/search?q=")
-    source_lang: str = os.getenv("SOURCE_LANG", "km-KH")
-    target_lang: str = os.getenv("TARGET_LANG", "en")
+class Settings:
+    def __init__(self):
+        self.google_project  = os.getenv("GOOGLE_CLOUD_PROJECT")
+        self.cors_origins    = os.getenv("CORS_ALLOW_ORIGINS", "").split(",")
+        self.host            = os.getenv("HOST", "0.0.0.0")
+        self.port            = int(os.getenv("PORT", 8000))
+        self.log_level       = os.getenv("LOG_LEVEL", "info")
+        self.base_search_url = os.getenv("BASE_SEARCH_URL", "https://e-catalog.dahoughengenterprise.com/search?q=")
+        self.source_lang     = os.getenv("SOURCE_LANG", "km-KH")
+        self.target_lang     = os.getenv("TARGET_LANG", "en")
 
 settings = Settings()
 
